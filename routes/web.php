@@ -4,6 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CategoryController;
+
+Route::resource('categories', CategoryController::class);
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
 Route::get('/', function () {
     return view('welcome');
