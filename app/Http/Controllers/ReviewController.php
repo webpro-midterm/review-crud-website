@@ -41,13 +41,10 @@ class ReviewController extends Controller
 
     public function show($id)
     {
-        // Fetch the review by ID
-        $review = Review::findOrFail($id);
+        // Fetch the review by ID, along with its comments and the user who made each comment
+        $review = Review::with(['comments.user'])->findOrFail($id); // Eager load comments and their associated users
 
-        // Fetch comments related to this review
-        $comments = $review->comments; // Assuming you have a relationship defined
-
-        return view('reviews.show', compact('review', 'comments'));
+        return view('reviews.show', compact('review'));
     }
 
     public function like(Review $review)
