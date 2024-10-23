@@ -38,4 +38,25 @@ class ReviewController extends Controller
 
         return redirect()->route('movies.show', $movie);
     }
+
+    public function show($id)
+    {
+        // Fetch the review by ID
+        $review = Review::findOrFail($id);
+
+        // Fetch comments related to this review
+        $comments = $review->comments; // Assuming you have a relationship defined
+
+        return view('reviews.show', compact('review', 'comments'));
+    }
+
+    public function like(Review $review)
+    {
+        $review->likes()->create([
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('reviews.show', $review);
+    }
+
 }

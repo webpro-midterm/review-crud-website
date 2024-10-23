@@ -5,10 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 Route::resource('categories', CategoryController::class);
 
+// Display all reviews on the reviews index page
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+//Display single review on click
+Route::get('/reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,5 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/movies/{movie}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::delete('/movies/{movie}/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
+
+Route::post('/reviews/{review}/like', [ReviewController::class, 'like'])->name('reviews.like');
+Route::post('/reviews/{review}/comments', [CommentController::class, 'store'])->name('comments.store');
+
 
 require __DIR__.'/auth.php';
