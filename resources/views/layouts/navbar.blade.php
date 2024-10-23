@@ -17,9 +17,10 @@
 
         <!-- Links -->
         <div id="menu" class="hidden md:flex space-x-4">
-            <a href="{{ url('/') }}" class="hover:text-gray-400 text-white">Home</a>
-            <a href="{{ route('categories.index') }}" class="hover:text-gray-400 text-white">Categories</a>
+            <a href="{{ route('dashboard') }}" class="hover:text-gray-400 text-white">Home</a>
+            <a href="{{ route('movies.index') }}" class="hover:text-gray-400 text-white">Movies</a>
             <a href="{{ route('reviews.index') }}" class="hover:text-gray-400 text-white">Reviews</a>
+            <a href="{{ route('categories.index') }}" class="hover:text-gray-400 text-white">Categories</a> <!-- New Category Link -->
         </div>
 
         <!-- Authentication Links -->
@@ -40,8 +41,9 @@
     <!-- Mobile Menu (Initially Hidden) -->
     <div id="mobile-menu" class="md:hidden hidden flex-col items-center bg-[#2F4156] space-y-4 p-4">
         <a href="{{ url('/') }}" class="hover:text-gray-400 text-white">Home</a>
-        <a href="{{ route('categories.index') }}" class="hover:text-gray-400 text-white">Categories</a>
+        <a href="{{ route('movies.index') }}" class="hover:text-gray-400 text-white">Movies</a>
         <a href="{{ route('reviews.index') }}" class="hover:text-gray-400 text-white">Reviews</a>
+        <a href="{{ route('categories.index') }}" class="hover:text-gray-400 text-white">Categories</a> <!-- New Category Link -->
         @guest
             <a href="{{ route('login') }}" class="hover:text-gray-400 text-white">Login</a>
             <a href="{{ route('register') }}" class="hover:text-gray-400 text-white">Register</a>
