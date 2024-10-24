@@ -35,7 +35,7 @@
 </head>
 <body class="font-poppins antialiased bg-[#100E34] text-black/50">
     <div class="relative w-full flex flex-col items-center justify-center min-h-screen mx-auto">
-        <header class="w-full bg-[#100E34] py-5"> 
+        <header class="w-full bg-[#100E34] py-5">
             <nav class="flex items-center justify-between w-full px-4 sm:px-6">
                 <!-- Left side (Logo or Title) -->
                 <div class="text-2xl sm:text-3xl md:text-6xl font-semibold px-4 sm:px-24">
@@ -45,15 +45,15 @@
                 <div class="px-4 sm:px-24 space-x-1 flex items-center">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm"> 
+                            <a href="{{ url('/dashboard') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Dashboard
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm"> 
+                            <a href="{{ route('login') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Log in
                             </a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm"> 
+                            <a href="{{ route('register') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Register
                             </a>
                         @endif

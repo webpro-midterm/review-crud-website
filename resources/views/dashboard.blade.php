@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <body class="font-sans antialiased bg-[#F5EFEB] text-black/50">
-        <div class="text-black/50 bg-[#F5EFEB]">
+        <div class="text-black/50">
 
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
@@ -12,6 +12,9 @@
                         <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for better text visibility -->
                             <div class="relative flex items-center justify-center h-full">
                                 <div class="text-center p-6">
+                                    <!-- <div class="text-4xl md:text-6xl font-bold mb-4">
+                                        <span class="text-[#FFBF18]">Rate</span><span class="text-[#FFBF18]">-</span><span class="text-[#4F48EC]">View</span>
+                                    </div> -->
                                     <h1 class="text-4xl md:text-6xl font-bold mb-4">Rate-View</h1>
                                     <p class="text-lg md:text-xl mb-6">Rate Shows That You Have Viewed</p>
                                     <a href="{{ route('register') }}" class="bg-[#2F4156] hover:bg-[#567C8D] text-white font-semibold py-3 px-6 rounded transition">
@@ -94,7 +97,7 @@
 
                     </main>
 
-                    <footer class="py-16 text-center text-sm text-black">
+                    <footer class="py-16 text-center text-sm text-white">
                         Webpro IUP 2024
                     </footer>
                 </div>

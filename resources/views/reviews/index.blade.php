@@ -1,7 +1,7 @@
 <x-app-layout>
     <div>
         <div class="container">
-            <div class="text-4xl mb-4 text-center">
+            <div class="text-4xl mb-4 text-center text-[#FFBF18] font-bold p-5">
                 <h1>All Reviews</h1>
             </div>
 

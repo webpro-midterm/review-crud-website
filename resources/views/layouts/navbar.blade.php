@@ -1,8 +1,8 @@
-<nav class="bg-[#2F4156] h-16 flex items-center">
+<nav class=" h-16 flex items-center">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo or Brand -->
         <a href="{{ url('/') }}" class="text-xl font-bold text-white">
-            Rate-View
+        <span class="text-[#FFBF18]">Rate</span><span class="text-[#FFBF18]">-</span><span class="text-[#4F48EC]">View</span>
         </a>
 
         <!-- Hamburger Menu for Mobile -->
