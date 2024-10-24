@@ -6,6 +6,8 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\BookmarkController;
+
 
 Route::resource('categories', CategoryController::class);
 
@@ -38,5 +40,7 @@ Route::middleware(['auth'])->group(function () {
 Route::post('/reviews/{review}/like', [ReviewController::class, 'like'])->name('reviews.like');
 Route::post('/reviews/{review}/comments', [CommentController::class, 'store'])->name('comments.store');
 
+Route::post('/comments/{comment}/bookmark', [BookmarkController::class, 'store'])->name('bookmarks.store');
+Route::delete('/bookmarks/{bookmark}', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy');
 
 require __DIR__.'/auth.php';

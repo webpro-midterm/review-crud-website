@@ -12,7 +12,7 @@
         @foreach ($review->comments as $comment)
             <div class="flex flex-col bg-gray-500 text-white mb-2 p-2 rounded">
                 <strong>{{ $comment->user->name }}</strong>
-                <p>{{ $comment->comment }}</p>
+                <p>{{ $comment->content }}</p>
             </div>
         @endforeach
 

@@ -12,14 +12,14 @@
                 <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     @foreach ($movies as $movie)
                     <li class="mb-5 bg-[#374785] bg-opacity-50 px-5 py-5 text-white rounded">
-                        <div class="flex flex-col items-center justify-center">
+                        <div class="flex flex-col items-center justify-center text-justify">
                             <!-- Display Movie Image -->
                             @if ($movie->image)
                                 <img src="{{ asset('storage/' . $movie->image) }}" alt="{{ $movie->title }}" class="mb-2 min-h-5 min-w-5" style="max-width: 200px; max-height: 200px;">
                             @endif
 
                             <!-- Movie details -->
-                            <a href="{{ route('movies.show', $movie->id) }}" class="text-xl">{{ $movie->title }}</a>
+                            <a href="{{ route('movies.show', $movie->id) }}" class="text-xl text-justify">{{ $movie->title }}</a>
                             <span>({{ $movie->release_date }})</span>
 
                             <!-- Action buttons for Edit -->
