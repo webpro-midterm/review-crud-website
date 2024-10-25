@@ -33,27 +33,27 @@
         }
     </style>
 </head>
-<body class="font-poppins antialiased bg-[#100E34] text-black/50">
+<body class="font-poppins antialiased bg-[#0B0C10] text-black/50">
     <div class="relative w-full flex flex-col items-center justify-center min-h-screen mx-auto">
-        <header class="w-full bg-[#100E34] py-5">
+        <header class="w-full py-5">
             <nav class="flex items-center justify-between w-full px-4 sm:px-6">
                 <!-- Left side (Logo or Title) -->
                 <div class="text-2xl sm:text-3xl md:text-6xl font-semibold px-4 sm:px-24">
-                    <span class="text-[#FFBF18]">Rate</span><span class="text-[#FFBF18]">-</span><span class="text-[#4F48EC]">View</span>
+                    <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-48 mx-auto mb-4">
                 </div>
                 <!-- Right side (Links) -->
                 <div class="px-4 sm:px-24 space-x-1 flex items-center">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
+                            <a href="{{ url('/dashboard') }}" class="text-[#66FCF1] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Dashboard
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
+                            <a href="{{ route('login') }}" class="text-[#66FCF1] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Log in
                             </a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-[#FFBF18] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
+                            <a href="{{ route('register') }}" class="text-[#66FCF1] px-3 py-2 hover:text-white/70 md:text-2xl text-sm">
                                 Register
                             </a>
                         @endif
@@ -69,7 +69,7 @@
                 <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
                 <div class="relative flex items-center justify-center h-full">
                     <div class="text-center p-4 sm:p-6">
-                        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">Rate-View</h1>
+                        <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-42 mx-auto mb-4">
                         <p class="text-base sm:text-lg md:text-xl mb-6">Rate Shows That You Have Viewed</p>
                         <a href="{{ route('register') }}" class="mb-4 relative sm:w-auto w-full hover:-rotate-3 transition-all ease-out duration-300 inline-flex items-center justify-center px-6 py-3 text-lg font-bold text-white duration-100 bg-[#100E34] hover:bg-[#4F48EC] hover:scale-[1.01] rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
                             Get Started

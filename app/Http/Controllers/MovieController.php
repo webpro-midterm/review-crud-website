@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Movie; // Import the Movie model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage; // Import Storage facade
-
+use App\Models\Comment;
+use App\Models\Review;
 class MovieController extends Controller {
 
     // Display a listing of the movies
@@ -89,7 +90,17 @@ class MovieController extends Controller {
             Storage::disk('public')->delete($movie->image); // Delete image if it exists
         }
 
-        $movie->delete(); // Delete the movie record
+        // Delete associated comments
+        Comment::whereHas('review', function($query) use ($movie) {
+            $query->where('movie_id', $movie->id);
+        })->delete();
+
+        // Delete associated reviews
+        Review::where('movie_id', $movie->id)->delete();
+
+        // Finally, delete the movie record
+        $movie->delete();
+
         return redirect()->route('movies.index')->with('success', 'Movie deleted successfully'); // Redirect to the movie list
     }
 }

@@ -7,7 +7,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\BookmarkController;
+use App\Models\Review;
 
+Route::post('reviews/{review}/bookmarks', [BookmarkController::class, 'store'])->name('bookmark.store');
+Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
 
 Route::resource('categories', CategoryController::class);
 

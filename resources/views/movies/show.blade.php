@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex flex-col">
-        <h1 class="text-[#FFBF18] text-center text-3xl font-bold p-5">Submit Review</h1>
-        <div class="container bg-[#403c8f] flex flex-col justify-start p-5 rounded-xl">
+        <h1 class="text-[#66FCF1] text-center text-3xl font-bold font-zen p-5">SUBMIT REVIEW</h1>
+        <div class="container bg-[#0B0C10] flex flex-col justify-start p-5 rounded-xl">
             <div class="mb-3">
                 <h1 class="text-white text-2xl font-bold">{{ $movie->title }}</h1>
             </div>

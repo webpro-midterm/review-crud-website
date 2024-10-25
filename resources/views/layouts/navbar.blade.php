@@ -1,9 +1,9 @@
-<nav class=" h-16 flex items-center">
+<nav class="bg-[#1F2833] h-16 flex items-center">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo or Brand -->
-        <a href="{{ url('/') }}" class="text-xl font-bold text-white">
-        <span class="text-[#FFBF18]">Rate</span><span class="text-[#FFBF18]">-</span><span class="text-[#4F48EC]">View</span>
-        </a>
+        <a href="{{ url('/') }}" class="flex items-center">
+    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-44" /> <!-- Adjust the height as needed -->
+</a>
 
         <!-- Hamburger Menu for Mobile -->
         <div class="block md:hidden">
@@ -18,9 +18,8 @@
         <!-- Links -->
         <div id="menu" class="hidden md:flex space-x-4">
             <a href="{{ route('dashboard') }}" class="hover:text-gray-400 text-white">Home</a>
-            <a href="{{ route('movies.index') }}" class="hover:text-gray-400 text-white">Movies</a>
+            <a href="{{ route('movies.index') }}" class="hover:text-gray-400 text-white">Post</a>
             <a href="{{ route('reviews.index') }}" class="hover:text-gray-400 text-white">Reviews</a>
-            <a href="{{ route('categories.index') }}" class="hover:text-gray-400 text-white">Categories</a> <!-- New Category Link -->
         </div>
 
         <!-- Authentication Links -->

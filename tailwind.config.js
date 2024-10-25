@@ -13,6 +13,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                cosmic: ['Cosmic', 'sans-serif'], // Add Cosmic font here
+                zen: ['"Zen Dots"', 'sans-serif'], // Add Zen Dots font
             },
         },
     },

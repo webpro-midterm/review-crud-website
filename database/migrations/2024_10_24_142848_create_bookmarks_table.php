@@ -6,16 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
 
-  public function up(): void {
-    Schema::create('bookmarks', function (Blueprint $table) {
-      $table->id();
-      $table->foreignId('user_id')->constrained()->onDelete('cascade');
-      $table->foreignId('comment_id')->constrained()->onDelete('cascade');
-      $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-      });
-  }
+    public function up(): void {
+        Schema::create('bookmarks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('review_id')->constrained()->onDelete('cascade'); // Add this line
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
+            $table->timestamps(); // Make sure to include timestamps
+        });
+    }
 
-  public function down(): void {
-    Schema::dropIfExists('bookmarks');
-  }
+    public function down(): void {
+        Schema::dropIfExists('bookmarks');
+    }
 };
