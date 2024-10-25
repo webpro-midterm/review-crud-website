@@ -2,8 +2,8 @@
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo or Brand -->
         <a href="{{ url('/') }}" class="flex items-center">
-    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-44" /> <!-- Adjust the height as needed -->
-</a>
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-44" />
+        </a>
 
         <!-- Hamburger Menu for Mobile -->
         <div class="block md:hidden">
@@ -29,6 +29,7 @@
                 <a href="{{ route('register') }}" class="hover:text-gray-400 text-white">Register</a>
             @else
                 <a href="{{ route('dashboard') }}" class="hover:text-gray-400 text-white">Dashboard</a>
+                <a href="{{ route('profile.edit') }}" class="hover:text-gray-400 text-white">Profile</a> <!-- Profile link added -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="hover:text-gray-400 text-white">Logout</button>
@@ -48,6 +49,7 @@
             <a href="{{ route('register') }}" class="hover:text-gray-400 text-white">Register</a>
         @else
             <a href="{{ route('dashboard') }}" class="hover:text-gray-400 text-white">Dashboard</a>
+            <a href="{{ route('profile.edit') }}" class="hover:text-gray-400 text-white">Profile</a> <!-- Profile link added for mobile -->
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="hover:text-gray-400 text-white">Logout</button>
