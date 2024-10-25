@@ -9,6 +9,16 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\BookmarkController;
 use App\Models\Review;
 
+//delete comments
+Route::delete('/reviews/{review}/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+// Reply to a comment
+Route::post('/reviews/{review}/comments/{comment}/reply', [CommentController::class, 'reply'])->name('comments.reply');
+
+// Store a new comment
+Route::post('/reviews/{review}/comments', [CommentController::class, 'store'])->name('comments.store');
+
+
 Route::post('reviews/{review}/bookmarks', [BookmarkController::class, 'store'])->name('bookmark.store');
 Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
 
