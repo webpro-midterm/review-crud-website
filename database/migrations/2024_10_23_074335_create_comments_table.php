@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('review_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('content');
+            $table->unsignedBigInteger('parent_id')->nullable(); // Add this line for replies
             $table->timestamps();
         });
     }
