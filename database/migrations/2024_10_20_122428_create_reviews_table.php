@@ -16,6 +16,8 @@ return new class extends Migration {
       $table->integer('rating')->default(0);
       $table->text('review');
       $table->timestamps();
+      $table->integer('likes')->default(0); 
+      $table->integer('dislikes')->default(0); 
       });
     }
 

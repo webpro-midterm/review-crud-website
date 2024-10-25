@@ -2,58 +2,105 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie; // Import the Movie model
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage; // Import Storage facade
+use App\Models\Comment;
+use App\Models\Review;
 class MovieController extends Controller {
 
-  public function index() { //retrieves all the movies in the database 
-    $movies = Movie::all(); //Movies::all() means all movies
-    return view('movies.index', compact('movies')); // compact() is function to creates an array containin all the movies variable in the DB
-    // also this means that it's going to the index.blade.php
-  } 
+    // Display a listing of the movies
+    public function index() {
+        $movies = Movie::all(); // Fetch all movies from the database
+        return view('movies.index', compact('movies')); // Pass movies to the view
+    }
 
-  public function create() {
-    return view('movies.create'); // creating a movie
-    /*
-    basically movies.create is instruction the code to find the /resources/views/movies directory
-    and contains a file create.blade.php (i haven't made it)
-    */
-  }
+    // Show the form for creating a new movie
+    public function create() {
+        return view('movies.create'); // Display the form for creating a movie
+    }
 
-  public function store(Request $request) { //after creating a movie you have to make the revies
-    $request->validate([ //to make a review ofcourse you need to fill some form, and alll of that form must be filled
-      'title' => 'required',
-      'description' => 'required',
-      'release_date' => 'required|date',
-    ]);
+    // Store a newly created movie in the database
+    public function store(Request $request) {
+        $request->validate([ // Validate form input
+            'title' => 'required',
+            'description' => 'required',
+            'release_date' => 'required|date',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
+        ]);
 
-    Movie::create($request->all());
+        $movieData = $request->all();
 
-    return redirect()->route('movie.index'); 
-  }
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            // Store the image in the 'public/images' directory and get its path
+            $imagePath = $request->file('image')->store('images', 'public');
+            $movieData['image'] = $imagePath; // Save the image path in the movie data
+        }
 
-  public function show() {  //showing a movie
-    return view('movies.show', compact('movie'));
-  }
+        Movie::create($movieData); // Create a new movie record in the database
 
-  public function edit() { // editing a movie
-    return view('movies.edit', compact('movie')); 
-  }
+        return redirect()->route('movies.index')->with('success', 'Movie created successfully'); // Redirect to the movie list
+    }
 
-  public function update(Request $request, Movie $movies){
-    $request->validate([
-        'title' => 'required',
-        'description' => 'required',
-        'release_date' => 'required|date',
-    ]);
+    // Display the specified movie
+    public function show(Movie $movie) { // The $movie will be automatically injected by route-model binding
+        return view('movies.show', compact('movie')); // Pass the movie to the view
+    }
 
-    $movie->update($request->all());
+    // Show the form for editing the specified movie
+    public function edit(Movie $movie) { // The $movie will be automatically injected by route-model binding
+        return view('movies.edit', compact('movie')); // Pass the movie to the view
+    }
 
-    return redirect()->route('movies.index');
-  }
+    // Update the specified movie in the database
+    public function update(Request $request, Movie $movie) {
+        $request->validate([ // Validate the form input
+            'title' => 'required',
+            'description' => 'required',
+            'release_date' => 'required|date',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
+        ]);
 
-  public function destroy(Movie $movie) {
-    $movie->delete();
-    return redirect()->route('movies.index');
-  }
+        $movieData = $request->all();
+
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($movie->image) {
+                Storage::disk('public')->delete($movie->image); // Delete old image
+            }
+
+            // Store the new image in the 'public/images' directory
+            $imagePath = $request->file('image')->store('images', 'public');
+            $movieData['image'] = $imagePath; // Save the new image path
+        } else {
+            $movieData['image'] = $movie->image; // Keep the old image if no new one is uploaded
+        }
+
+        $movie->update($movieData); // Update the movie record
+
+        return redirect()->route('movies.index')->with('success', 'Movie updated successfully'); // Redirect to the movie list
+    }
+
+    // Remove the specified movie from the database
+    public function destroy(Movie $movie) {
+        // Optionally delete the image from storage
+        if ($movie->image) {
+            Storage::disk('public')->delete($movie->image); // Delete image if it exists
+        }
+
+        // Delete associated comments
+        Comment::whereHas('review', function($query) use ($movie) {
+            $query->where('movie_id', $movie->id);
+        })->delete();
+
+        // Delete associated reviews
+        Review::where('movie_id', $movie->id)->delete();
+
+        // Finally, delete the movie record
+        $movie->delete();
+
+        return redirect()->route('movies.index')->with('success', 'Movie deleted successfully'); // Redirect to the movie list
+    }
 }

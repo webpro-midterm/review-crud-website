@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration{
-  
+
   /**
    * Reverse the migrations.
   */
@@ -15,6 +15,7 @@ return new class extends Migration{
       $table->string('title');
       $table->text('description');
       $table->date('release_date');
+      $table->string('image')->nullable();
       $table->timestamps();
     });
   }
