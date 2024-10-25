@@ -10,7 +10,7 @@
                 @method('PUT')
 
                 <div class="flex flex-row">
-                    <div class="mb-4 flex flex-col text-white">
+                    <div class="mb-4 flex flex-col text-white p-5">
                         <label for="image" class="form-label">Movie Image</label>
                         <div id="image-frame" class="w-32 h-32 bg-gray-800 rounded-lg flex items-center justify-center cursor-pointer">
                             <img id="image-preview" src="{{ asset('storage/' . $movie->image) }}" alt="Image Preview" class="hidden w-full h-full object-cover rounded-lg" />
