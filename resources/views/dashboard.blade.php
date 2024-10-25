@@ -6,9 +6,9 @@
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
 
-                    <main class="mt-6">
+                    <main class="mt-6 w-full h-auto">
                         <!-- Main content here -->
-                        <section class="relative bg-cover bg-center h-[60vh] text-white" style="background-image: url('{{ asset('images/thing.gif') }}');">
+                        <section class="relative bg-cover bg-center w-full h-[60vh] text-white" style="background-image: url('{{ asset('images/thing.gif') }}');">
                         <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for better text visibility -->
                             <div class="relative flex items-center justify-center h-full">
                                 <div class="text-center p-6">

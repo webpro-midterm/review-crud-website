@@ -32,7 +32,7 @@
                                         <li>
                                             {{ $comment->user->name }}: {{ $comment->comment }}
                                             <!-- Reply Form -->
-                                            <form action="{{ route('comments.store') }}" method="POST" class="mt-2">
+                                            <form id="replyForm{{ $comment->id }}" action="{{ route('comments.store', $review) }}" method="POST" class="hidden mt-4">
                                                 @csrf
                                                 <input type="hidden" name="review_id" value="{{ $review->id }}">
                                                 <input type="hidden" name="parent_id" value="{{ $comment->id }}"> <!-- For replies -->
