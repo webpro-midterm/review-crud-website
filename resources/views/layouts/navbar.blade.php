@@ -2,7 +2,7 @@
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo or Brand -->
         <a href="{{ url('/') }}" class="flex items-center">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-44" />
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-20" />
         </a>
 
         <!-- Hamburger Menu for Mobile -->

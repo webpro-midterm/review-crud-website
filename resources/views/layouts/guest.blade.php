@@ -27,6 +27,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet"
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -36,11 +37,13 @@
             <div>
                 <a href="/">
                     <!-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> -->
-                     <h1 class="text-4xl text-[#66FCF1]">Rate-View</h1>
+                     <!-- <h1 class="text-4xl text-[#66FCF1]">Rate-View</h1> -->
+                     <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-32">
+
                 </a>
             </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-[#FFFFFF] shadow-md overflow-hidden sm:rounded-lg">
+            <!-- <h1 class="text-2xl text-[#66FCF1] font-zen mt-10">REGISTER</h1> -->
+            <div class="w-full sm:max-w-md mt-2 px-6 py-4 bg-[#1F2833] shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

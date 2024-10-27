@@ -112,7 +112,7 @@
                                         <time pubdate datetime="{{ $reply->created_at }}" title="{{ $reply->created_at }}">{{ \Carbon\Carbon::parse($reply->created_at)->format('d M Y') }}</time>
                                     </p>
                                 </div>
-                            @endforeach 
+                            @endforeach
                         </article>
                     @endif
                 @endforeach

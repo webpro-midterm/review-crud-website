@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/cosmic" rel="stylesheet">
     <title>Laravel</title>
     <script>
         tailwind.config = {
@@ -39,7 +40,7 @@
             <nav class="flex items-center justify-between w-full px-4 sm:px-6">
                 <!-- Left side (Logo or Title) -->
                 <div class="text-2xl sm:text-3xl md:text-6xl font-semibold px-4 sm:px-24">
-                    <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-48 mx-auto mb-4">
+                    <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-28 mx-auto mb-4">
                 </div>
                 <!-- Right side (Links) -->
                 <div class="px-4 sm:px-24 space-x-1 flex items-center">
@@ -69,8 +70,8 @@
                 <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
                 <div class="relative flex items-center justify-center h-full">
                     <div class="text-center p-4 sm:p-6">
-                        <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-42 mx-auto mb-4">
-                        <p class="taext-base sm:text-lg md:text-xl mb-6">Rate Shows That You Have Viewed</p>
+                        <img src="{{ asset('images/logo.png') }}" alt="Rate-View Logo" class="h-72 mx-auto mb-4">
+                        <p class="text-base sm:text-lg md:text-xl mb-6">Rate Shows That You Have Viewed</p>
                         <a href="{{ route('register') }}" class="mb-4 relative sm:w-auto w-full hover:-rotate-3 transition-all ease-out duration-300 inline-flex items-center justify-center px-6 py-3 text-lg font-bold text-white duration-100 bg-[#100E34] hover:bg-[#4F48EC] hover:scale-[1.01] rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
                             Get Started
                         </a>

@@ -1,21 +1,21 @@
 <x-app-layout>
     <div>
-        <div class="container">
+        <div class="container mx-auto">
             <div class="text-4xl mb-4 text-center text-[#66FCF1] font-bold p-5 font-zen">
                 <h1>REVIEWS</h1>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-5">
                 @if($reviews->isEmpty())
-                    <p>No reviews available.</p>
+                    <p class="text-white text-center col-span-full">No reviews available.</p>
                 @else
                     @foreach($reviews as $review)
-                        <div class="m-4 w-auto px-4">
-                            <div class="rounded-lg bg-[#2F4156] shadow-lg">
+                        <div class="m-2">
+                            <div class="rounded-lg bg-[#2F4156] shadow-lg w-80 h-auto">
                                 @if($review->movie->image)
                                     <img src="{{ asset('storage/' . $review->movie->image) }}"
                                          alt="{{ $review->movie->title }} Image"
-                                         class="rounded-t-lg object-cover h-64 w-full">
+                                         class="rounded-t-lg object-cover h-96 w-full">
                                 @else
                                     <img src="https://via.placeholder.com/400x500"
                                          alt="No Image"

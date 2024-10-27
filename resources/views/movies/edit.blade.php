@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container flex flex-col justify-center items-center">
-        <div class="text-[#66FCF1] text-2xl font-bold p-5">
-            <h1>Edit Movie</h1>
+        <div class="text-[#66FCF1] text-2xl font-bold p-5 font-zen">
+            <h1>EDIT MOVIE</h1>
         </div>
 
         <div class="bg-[#0B0C10] p-5 rounded-xl">
@@ -11,15 +11,15 @@
 
                 <div class="flex flex-row">
                     <div class="mb-4 flex flex-col text-white p-5">
-                        <label for="image" class="form-label">Movie Image</label>
-                        <div id="image-frame" class="w-32 h-32 bg-gray-800 rounded-lg flex items-center justify-center cursor-pointer">
-                            <img id="image-preview" src="{{ asset('storage/' . $movie->image) }}" alt="Image Preview" class="hidden w-full h-full object-cover rounded-lg" />
-                            <span id="image-placeholder" class="text-gray-400">Click to upload image</span>
+
+                        <div id="image-frame" class="aspect-[2/3] w-64 w-32 bg-gray-800 rounded-lg flex items-center justify-center cursor-pointer relative mx-5">
+                            <img id="image-preview" src="{{ asset('storage/' . $movie->image) }}" alt="Image Preview" class="hidden absolute inset-0 w-full h-full object-cover rounded-lg" />
+                            <span id="image-placeholder" class="text-gray-400 text-center">Click to upload image</span>
                             <input type="file" id="image" name="image" class="hidden" accept="image/*" onchange="previewImage(event)">
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="flex-1"> <!-- Allow this column to grow -->
                         <div class="mb-4 flex flex-col">
                             <label for="title" class="form-label text-white">Title</label>
                             <input type="text" id="title" name="title" value="{{ $movie->title }}" class="form-control">
@@ -57,7 +57,6 @@
         function previewImage(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
-            const imageFrame = document.getElementById('image-frame');
             const imagePreview = document.getElementById('image-preview');
             const imagePlaceholder = document.getElementById('image-placeholder');
 
