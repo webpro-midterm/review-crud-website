@@ -111,7 +111,18 @@
                                     <p class="text-xs text-gray-500 dark:text-gray-400">
                                         <time pubdate datetime="{{ $reply->created_at }}" title="{{ $reply->created_at }}">{{ \Carbon\Carbon::parse($reply->created_at)->format('d M Y') }}</time>
                                     </p>
+
+                                    <form action="{{ route('comments.destroy', [$review, $comment]) }}" method="POST" class="inline-flex">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this comment?');" class="text-red-600 hover:text-red-800 text-sm">
+                                        Delete
+                                    </button>
+                                </form>
+
                                 </div>
+
+
                             @endforeach
                         </article>
                     @endif

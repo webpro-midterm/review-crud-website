@@ -56,9 +56,14 @@ class CommentController extends Controller
 
     public function destroy(Review $review, Comment $comment)
     {
-        // Optional: Check if the comment belongs to the review
+        // Check if the comment belongs to the review
         if ($comment->review_id !== $review->id) {
             return redirect()->route('reviews.show', $review)->with('error', 'Comment not found.');
+        }
+
+        // Check if the authenticated user is the owner of the comment
+        if ($comment->user_id !== auth()->id()) {
+            return redirect()->route('reviews.show', $review)->with('error', 'You do not have permission to delete this comment.');
         }
 
         // Delete the comment
