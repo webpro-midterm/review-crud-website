@@ -26,7 +26,16 @@
 
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen" style="background-color: #1F2833;">
+        <div class="background min-h-screen" style="background-color: #1F2833;">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
             @include('layouts.navbar')
 
             <!-- Page Heading -->
